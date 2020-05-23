@@ -74,15 +74,19 @@ $ yarn or npm i
 <hr>
 <br>
 
-<h2>🏆😝😜🏆</h2>
+<div align="center">
 
-<h2>📡 Insomnia 📡</h2>
+  <h2>🏆😝😜🏆</h2>
+
+  <h2>📡 Insomnia 📡</h2>
 
 <strong>Import Insomnia settings from root folder.</strong>
 
-<h2>👀 Postbird 👀</h2>
+  <h2>👀 Postbird 👀</h2>
 
 <strong>Use postbird to display database</strong>
+
+</div>
 
 <br>
 <hr>
