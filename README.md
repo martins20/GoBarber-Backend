@@ -41,7 +41,7 @@
 <strong>Start / Create your <a href="https://hub.docker.com/_/postgres"> 🐳 Docker Postgres</a> Container:</strong>
 
 ```
-  $ docker run --name villo -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+  $ docker run --name gobarber -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
 <br>
