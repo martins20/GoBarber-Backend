@@ -18,6 +18,8 @@
 - <strong>Pg</strong>
 - <strong>Sequelize</strong>
 - <strong>Yup</strong>
+- <strong>Mongoose</strong>
+- <strong>Date-fns</strong>
 
 <br>
 <hr>
