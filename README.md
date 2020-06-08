@@ -44,6 +44,12 @@
   $ docker run --name gobarber -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
+<strong>and</strong>
+
+```
+  $ docker run --name mongobarber -p 27017:27017 -d mongo
+```
+
 <br>
 
 <strong>Clone the project and install all dependencies with your favorite package manager.</strong>
