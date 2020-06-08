@@ -79,6 +79,14 @@ $ yarn or npm i
 
 <br>
 
+<strong>Run the queue system on GoBarber folder.</strong>
+
+```
+  $ yarn queue
+```
+
+<br>
+
 <strong>Run all migration and Finish !!!</strong>
 
 ```
