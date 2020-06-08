@@ -38,6 +38,7 @@
 - <strong>Sucrase</strong>
 - <strong>Sequelize</strong>
 - <strong>Sequelize-cli</strong>
+- <strong>Dotenv</strong>
 
 <br>
 <hr>
