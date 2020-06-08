@@ -22,7 +22,7 @@ class AppointmentController {
         canceled_at: null,
       },
       order: ['date'],
-      attributes: ['id', 'date'],
+      attributes: ['id', 'date', 'past', 'cancelable'],
       limit: 20,
       offset: (page - 1) * 20,
       include: [
@@ -55,10 +55,10 @@ class AppointmentController {
 
     const { provider_id, date } = req.body;
 
-    // if (req.userId === provider_id)
-    //   return res
-    //     .status(401)
-    //     .json({ error: 'You cannot create an appointment for yourself.' });
+    if (req.userId === provider_id)
+      return res
+        .status(401)
+        .json({ error: 'You cannot create an appointment for yourself.' });
 
     // Check if provider_id is provider
 
