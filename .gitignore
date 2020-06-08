@@ -2,3 +2,4 @@ node_modules
 .gitignore
 yarn.lock
 yarn-error.log
+temp
