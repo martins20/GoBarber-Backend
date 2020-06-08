@@ -22,6 +22,7 @@
 - <strong>Date-fns</strong>
 - <strong>NodeMailer</strong>
 - <strong>Handlebars</strong>
+- <strong>Bee-queue</strong>
 
 <br>
 <hr>
@@ -42,16 +43,20 @@
 
 <h2>📌 How to run</h2>
 
-<strong>Start / Create your <a href="https://hub.docker.com/_/postgres"> 🐳 Docker Postgres</a> Container:</strong>
+<strong>Start / Create your <a href="https://hub.docker.com/_/postgres"> 🐳 Docker Postgres</a> Containers:</strong>
 
 ```
   $ docker run --name gobarber -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
+```
+  $ docker run --name mongobarber -p 27017:27017 -d -t mongo
+```
+
 <strong>and</strong>
 
 ```
-  $ docker run --name mongobarber -p 27017:27017 -d mongo
+  $ docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
 ```
 
 <br>
