@@ -20,6 +20,8 @@
 - <strong>Yup</strong>
 - <strong>Mongoose</strong>
 - <strong>Date-fns</strong>
+- <strong>NodeMailer</strong>
+- <strong>Handlebars</strong>
 
 <br>
 <hr>
