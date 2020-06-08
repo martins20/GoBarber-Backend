@@ -23,6 +23,8 @@
 - <strong>NodeMailer</strong>
 - <strong>Handlebars</strong>
 - <strong>Bee-queue</strong>
+- <strong>Youch</strong>
+- <strong>Sentry</strong>
 
 <br>
 <hr>
