@@ -1,14 +1,15 @@
-import { v4 } from "uuid";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
+@Entity("appointments")
 class Appointments {
+    @PrimaryGeneratedColumn("uuid")
     id: string;
-    provider: string;
-    date: Date;
 
-    constructor({ provider, date }: Omit<Appointments, "id">) {
-        this.id = v4();
-        (this.provider = provider), (this.date = date);
-    }
+    @Column()
+    provider: string;
+
+    @Column("time with time zone")
+    date: Date;
 }
 
 export default Appointments;
