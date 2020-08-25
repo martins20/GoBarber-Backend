@@ -1,36 +1,39 @@
-import { Router, request, response } from "express";
-import { startOfHour, parseISO } from "date-fns";
+import { Router } from "express";
+import { parseISO } from "date-fns";
 
 import AppointmentsRepository from "../repositories/AppointmentsRepository";
+import CreateAppointmentService from "../services/CreateAppointmentService";
 
 const appointmentsRouter = Router();
+const appointmentsRepository = new AppointmentsRepository();
 
-appointmentsRouter.post("/", (request, response) => {
-    const { provider, date } = request.body;
-
-    const parsedDate = startOfHour(parseISO(date));
-
-    const findAppointmentInSameDate = AppointmentsRepository.findByDate(
-        parsedDate
-    );
-
-    if (findAppointmentInSameDate)
-        return response.json({
-            message: "This appointment is already booked",
-        });
-
-    const appointment = AppointmentsRepository.create({
-        provider,
-        date: parsedDate,
-    });
-
-    return response.json(appointment);
-});
+// Rota: Receber uma requisição, chamar outro arquivo, devolver uma resposta
 
 appointmentsRouter.get("/", (request, response) => {
-    const appointments = AppointmentsRepository.all();
+    const appointments = appointmentsRepository.all();
 
     return response.json(appointments);
+});
+
+appointmentsRouter.post("/", (request, response) => {
+    try {
+        const { provider, date } = request.body;
+
+        const parsedDate = parseISO(date);
+
+        const createAppointment = new CreateAppointmentService(
+            appointmentsRepository
+        );
+
+        const appointment = createAppointment.execute({
+            provider,
+            date: parsedDate,
+        });
+
+        return response.json(appointment);
+    } catch (err) {
+        return response.status(400).json({ message: err.message });
+    }
 });
 
 export default appointmentsRouter;
