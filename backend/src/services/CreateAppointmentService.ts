@@ -5,7 +5,7 @@ import { getCustomRepository } from "typeorm";
 import AppointmentsRepository from "../repositories/AppointmentsRepository";
 
 interface Request {
-    provider: string;
+    provider_id: string;
     date: Date;
 }
 
@@ -14,7 +14,7 @@ interface Request {
 class CreateAppointmentService {
     async execute({
         date: parsedDate,
-        provider,
+        provider_id,
     }: Request): Promise<Appointment> {
         const appointmentsRepository = getCustomRepository(
             AppointmentsRepository
@@ -30,7 +30,7 @@ class CreateAppointmentService {
             throw Error("This appointment is already booked");
 
         const appointment = appointmentsRepository.create({
-            provider,
+            provider_id,
             date: appointmentDate,
         });
 
