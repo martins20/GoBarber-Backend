@@ -13,7 +13,6 @@ interface Request {
 
 class CreateUserService {
     async execute({ name, email, password }: Request): Promise<User> {
-        console.log("Cheguei aqui");
 
         const usersRepository = getRepository(User);
 
