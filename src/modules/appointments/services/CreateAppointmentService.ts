@@ -1,43 +1,45 @@
-import { startOfHour } from "date-fns";
-import { getCustomRepository } from "typeorm";
+import { startOfHour } from 'date-fns';
+import { getCustomRepository } from 'typeorm';
 
-import AppErro from "@shared/errors/AppError";
+import AppErro from '@shared/errors/AppError';
 
-import Appointment from "../infra/typeorm/entities/Appointment";
-import AppointmentsRepository from "../repositories/AppointmentsRepository";
+import Appointment from '../infra/typeorm/entities/Appointment';
+import AppointmentsRepository from '../repositories/AppointmentsRepository';
 
 interface Request {
-  provider_id: string;
-  date: Date;
+    provider_id: string;
+    date: Date;
 }
 
 // Dependency Inversion (SOLID)
 
 class CreateAppointmentService {
-  async execute({
-    date: parsedDate,
-    provider_id,
-  }: Request): Promise<Appointment> {
-    const appointmentsRepository = getCustomRepository(AppointmentsRepository);
+    async execute({
+        date: parsedDate,
+        provider_id,
+    }: Request): Promise<Appointment> {
+        const appointmentsRepository = getCustomRepository(
+            AppointmentsRepository,
+        );
 
-    const appointmentDate = startOfHour(parsedDate);
+        const appointmentDate = startOfHour(parsedDate);
 
-    const findAppointmentInSameDate = await appointmentsRepository.findByDate(
-      appointmentDate
-    );
+        const findAppointmentInSameDate = await appointmentsRepository.findByDate(
+            appointmentDate,
+        );
 
-    if (findAppointmentInSameDate)
-      throw new AppErro("This appointment is already booked");
+        if (findAppointmentInSameDate)
+            throw new AppErro('This appointment is already booked');
 
-    const appointment = appointmentsRepository.create({
-      provider_id,
-      date: appointmentDate,
-    });
+        const appointment = appointmentsRepository.create({
+            provider_id,
+            date: appointmentDate,
+        });
 
-    await appointmentsRepository.save(appointment);
+        await appointmentsRepository.save(appointment);
 
-    return appointment;
-  }
+        return appointment;
+    }
 }
 
 export default CreateAppointmentService;
