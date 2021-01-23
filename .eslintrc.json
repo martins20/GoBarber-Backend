@@ -35,7 +35,7 @@
             }
         ],
         "@typescript-eslint/interface-name-prefix": [
-            "error",
+            "off",
             { "prefixWithI": "always" }
         ],
         "import/extensions": [
