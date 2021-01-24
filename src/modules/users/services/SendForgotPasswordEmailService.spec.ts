@@ -11,7 +11,7 @@ let fakeUsersRepository: FakeUsersRepository;
 let fakeUserTokensRepository: FakeUserTokensRepository;
 let fakeMailProvider: FakeEmailProvider;
 
-describe('SendForgotPasswordEmail', () => {
+describe('SendForgotPasswordEmailService', () => {
     beforeEach(() => {
         fakeUsersRepository = new FakeUsersRepository();
         fakeMailProvider = new FakeEmailProvider();
