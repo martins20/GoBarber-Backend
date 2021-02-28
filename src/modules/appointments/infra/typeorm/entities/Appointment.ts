@@ -1,34 +1,41 @@
 import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  ManyToOne,
-  JoinColumn,
-} from "typeorm";
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+    CreateDateColumn,
+    ManyToOne,
+    JoinColumn,
+} from 'typeorm';
 
-import User from "@modules/users/infra/typeorm/entities/User";
+import User from '@modules/users/infra/typeorm/entities/User';
 
-@Entity("appointments")
+@Entity('appointments')
 class Appointments {
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
-  @Column()
-  provider_id: string;
+    @Column()
+    provider_id: string;
 
-  @ManyToOne(() => User)
-  @JoinColumn({ name: "provider_id" })
-  provider: User;
+    @ManyToOne(() => User)
+    @JoinColumn({ name: 'provider_id' })
+    provider: User;
 
-  @Column("time with time zone")
-  date: Date;
+    @Column()
+    user_id: string;
 
-  @CreateDateColumn()
-  created_at: Date;
+    @ManyToOne(() => User)
+    @JoinColumn({ name: 'user_id' })
+    user: User;
 
-  @CreateDateColumn()
-  updated_at: Date;
+    @Column('time with time zone')
+    date: Date;
+
+    @CreateDateColumn()
+    created_at: Date;
+
+    @CreateDateColumn()
+    updated_at: Date;
 }
 
 export default Appointments;

@@ -1,25 +1,30 @@
 Arguments: 
-  /home/martins20/.nvm/versions/node/v12.18.3/bin/node /home/martins20/.yarn/bin/yarn.js add nodemailer
+  /home/martins20/.nvm/versions/node/v14.15.4/bin/node /home/martins20/.nvm/versions/node/v14.15.4/bin/yarn add typeorm migration:create --name AddUserToAppointments
 
 PATH: 
-  /home/martins20/.yarn/bin:/home/martins20/.config/yarn/global/node_modules/.bin:/home/martins20/.yarn/bin:/home/martins20/.config/yarn/global/node_modules/.bin:/home/martins20/.nvm/versions/node/v12.18.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/martins20/.dotnet/tools:/home/martins20/.dotnet/tools:/home/martins20/Android/Sdk/emulator:/home/martins20/Android/Sdk/tools:/home/martins20/Android/Sdk/tools/bin:/home/martins20/Android/Sdk/platform-tools:/home/martins20/android-studio/bin:/home/martins20/Android/Sdk/emulator:/home/martins20/Android/Sdk/tools:/home/martins20/Android/Sdk/tools/bin:/home/martins20/Android/Sdk/platform-tools:/home/martins20/android-studio/bin
+  /home/martins20/.nvm/versions/node/v14.15.4/bin:/home/martins20/.zinit/polaris/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/martins20/Android/Sdk/emulator:/home/martins20/Android/Sdk/tools:/home/martins20/Android/Sdk/tools/bin:/home/martins20/Android/Sdk/platform-tools:/home/martins20/Android/android-studio/bin:/home/martins20/Android/Sdk/emulator:/home/martins20/Android/Sdk/tools:/home/martins20/Android/Sdk/tools/bin:/home/martins20/Android/Sdk/platform-tools:/home/martins20/Android/android-studio/bin
 
 Yarn version: 
-  1.22.5
+  1.22.10
 
 Node version: 
-  12.18.3
+  14.15.4
 
 Platform: 
   linux x64
 
 Trace: 
-  SyntaxError: /home/martins20/.cache/yarn/v6/npm-nodemailer-6.4.17-8de98618028953b80680775770f937243a7d7877-integrity/node_modules/nodemailer/.yarn-metadata.json: Unexpected end of JSON input
-      at JSON.parse (<anonymous>)
-      at /home/martins20/.yarn/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/home/martins20/.yarn/lib/cli.js:310:30)
-      at /home/martins20/.yarn/lib/cli.js:321:13
+  Error: migration:create: Invalid protocol: migration:
+      at Request.module.exports.Request.init (/home/martins20/.nvm/versions/node/v14.15.4/lib/node_modules/yarn/lib/cli.js:140931:31)
+      at new Request (/home/martins20/.nvm/versions/node/v14.15.4/lib/node_modules/yarn/lib/cli.js:140604:8)
+      at request (/home/martins20/.nvm/versions/node/v14.15.4/lib/node_modules/yarn/lib/cli.js:136804:10)
+      at RequestManager.execute (/home/martins20/.nvm/versions/node/v14.15.4/lib/node_modules/yarn/lib/cli.js:67040:15)
+      at RequestManager.shiftQueue (/home/martins20/.nvm/versions/node/v14.15.4/lib/node_modules/yarn/lib/cli.js:67078:10)
+      at /home/martins20/.nvm/versions/node/v14.15.4/lib/node_modules/yarn/lib/cli.js:66747:13
+      at new Promise (<anonymous>)
+      at new F (/home/martins20/.nvm/versions/node/v14.15.4/lib/node_modules/yarn/lib/cli.js:5301:28)
+      at RequestManager.request (/home/martins20/.nvm/versions/node/v14.15.4/lib/node_modules/yarn/lib/cli.js:66745:19)
+      at NpmRegistry.<anonymous> (/home/martins20/.nvm/versions/node/v14.15.4/lib/node_modules/yarn/lib/cli.js:31704:42)
 
 npm manifest: 
   {
@@ -40,8 +45,10 @@ npm manifest:
           "date-fns": "^2.15.0",
           "express": "^4.17.1",
           "express-async-errors": "^3.1.1",
+          "handlebars": "^4.7.6",
           "jsonwebtoken": "^8.5.1",
           "multer": "^1.4.2",
+          "nodemailer": "^6.4.17",
           "pg": "^8.3.2",
           "reflect-metadata": "^0.1.13",
           "tsyringe": "^4.3.0",
@@ -798,12 +805,12 @@ Lockfile:
       "@types/yargs-parser" "*"
   
   "@typescript-eslint/eslint-plugin@^4.3.0":
-    version "4.14.0"
-    resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-4.14.0.tgz#92db8e7c357ed7d69632d6843ca70b71be3a721d"
-    integrity sha512-IJ5e2W7uFNfg4qh9eHkHRUCbgZ8VKtGwD07kannJvM5t/GU8P8+24NX8gi3Hf5jST5oWPY8kyV1s/WtfiZ4+Ww==
+    version "4.14.1"
+    resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-4.14.1.tgz#22dd301ce228aaab3416b14ead10b1db3e7d3180"
+    integrity sha512-5JriGbYhtqMS1kRcZTQxndz1lKMwwEXKbwZbkUZNnp6MJX0+OVXnG0kOlBZP4LUAxEyzu3cs+EXd/97MJXsGfw==
     dependencies:
-      "@typescript-eslint/experimental-utils" "4.14.0"
-      "@typescript-eslint/scope-manager" "4.14.0"
+      "@typescript-eslint/experimental-utils" "4.14.1"
+      "@typescript-eslint/scope-manager" "4.14.1"
       debug "^4.1.1"
       functional-red-black-tree "^1.0.1"
       lodash "^4.17.15"
@@ -811,48 +818,48 @@ Lockfile:
       semver "^7.3.2"
       tsutils "^3.17.1"
   
-  "@typescript-eslint/experimental-utils@4.14.0":
-    version "4.14.0"
-    resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-4.14.0.tgz#5aa7b006736634f588a69ee343ca959cd09988df"
-    integrity sha512-6i6eAoiPlXMKRbXzvoQD5Yn9L7k9ezzGRvzC/x1V3650rUk3c3AOjQyGYyF9BDxQQDK2ElmKOZRD0CbtdkMzQQ==
+  "@typescript-eslint/experimental-utils@4.14.1":
+    version "4.14.1"
+    resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-4.14.1.tgz#a5c945cb24dabb96747180e1cfc8487f8066f471"
+    integrity sha512-2CuHWOJwvpw0LofbyG5gvYjEyoJeSvVH2PnfUQSn0KQr4v8Dql2pr43ohmx4fdPQ/eVoTSFjTi/bsGEXl/zUUQ==
     dependencies:
       "@types/json-schema" "^7.0.3"
-      "@typescript-eslint/scope-manager" "4.14.0"
-      "@typescript-eslint/types" "4.14.0"
-      "@typescript-eslint/typescript-estree" "4.14.0"
+      "@typescript-eslint/scope-manager" "4.14.1"
+      "@typescript-eslint/types" "4.14.1"
+      "@typescript-eslint/typescript-estree" "4.14.1"
       eslint-scope "^5.0.0"
       eslint-utils "^2.0.0"
   
   "@typescript-eslint/parser@^4.3.0":
-    version "4.14.0"
-    resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-4.14.0.tgz#62d4cd2079d5c06683e9bfb200c758f292c4dee7"
-    integrity sha512-sUDeuCjBU+ZF3Lzw0hphTyScmDDJ5QVkyE21pRoBo8iDl7WBtVFS+WDN3blY1CH3SBt7EmYCw6wfmJjF0l/uYg==
+    version "4.14.1"
+    resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-4.14.1.tgz#3bd6c24710cd557d8446625284bcc9c6d52817c6"
+    integrity sha512-mL3+gU18g9JPsHZuKMZ8Z0Ss9YP1S5xYZ7n68Z98GnPq02pYNQuRXL85b9GYhl6jpdvUc45Km7hAl71vybjUmw==
     dependencies:
-      "@typescript-eslint/scope-manager" "4.14.0"
-      "@typescript-eslint/types" "4.14.0"
-      "@typescript-eslint/typescript-estree" "4.14.0"
+      "@typescript-eslint/scope-manager" "4.14.1"
+      "@typescript-eslint/types" "4.14.1"
+      "@typescript-eslint/typescript-estree" "4.14.1"
       debug "^4.1.1"
   
-  "@typescript-eslint/scope-manager@4.14.0":
-    version "4.14.0"
-    resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-4.14.0.tgz#55a4743095d684e1f7b7180c4bac2a0a3727f517"
-    integrity sha512-/J+LlRMdbPh4RdL4hfP1eCwHN5bAhFAGOTsvE6SxsrM/47XQiPSgF5MDgLyp/i9kbZV9Lx80DW0OpPkzL+uf8Q==
+  "@typescript-eslint/scope-manager@4.14.1":
+    version "4.14.1"
+    resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-4.14.1.tgz#8444534254c6f370e9aa974f035ced7fe713ce02"
+    integrity sha512-F4bjJcSqXqHnC9JGUlnqSa3fC2YH5zTtmACS1Hk+WX/nFB0guuynVK5ev35D4XZbdKjulXBAQMyRr216kmxghw==
     dependencies:
-      "@typescript-eslint/types" "4.14.0"
-      "@typescript-eslint/visitor-keys" "4.14.0"
+      "@typescript-eslint/types" "4.14.1"
+      "@typescript-eslint/visitor-keys" "4.14.1"
   
-  "@typescript-eslint/types@4.14.0":
-    version "4.14.0"
-    resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-4.14.0.tgz#d8a8202d9b58831d6fd9cee2ba12f8a5a5dd44b6"
-    integrity sha512-VsQE4VvpldHrTFuVPY1ZnHn/Txw6cZGjL48e+iBxTi2ksa9DmebKjAeFmTVAYoSkTk7gjA7UqJ7pIsyifTsI4A==
+  "@typescript-eslint/types@4.14.1":
+    version "4.14.1"
+    resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-4.14.1.tgz#b3d2eb91dafd0fd8b3fce7c61512ac66bd0364aa"
+    integrity sha512-SkhzHdI/AllAgQSxXM89XwS1Tkic7csPdndUuTKabEwRcEfR8uQ/iPA3Dgio1rqsV3jtqZhY0QQni8rLswJM2w==
   
-  "@typescript-eslint/typescript-estree@4.14.0":
-    version "4.14.0"
-    resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-4.14.0.tgz#4bcd67486e9acafc3d0c982b23a9ab8ac8911ed7"
-    integrity sha512-wRjZ5qLao+bvS2F7pX4qi2oLcOONIB+ru8RGBieDptq/SudYwshveORwCVU4/yMAd4GK7Fsf8Uq1tjV838erag==
+  "@typescript-eslint/typescript-estree@4.14.1":
+    version "4.14.1"
+    resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-4.14.1.tgz#20d3b8c8e3cdc8f764bdd5e5b0606dd83da6075b"
+    integrity sha512-M8+7MbzKC1PvJIA8kR2sSBnex8bsR5auatLCnVlNTJczmJgqRn8M+sAlQfkEq7M4IY3WmaNJ+LJjPVRrREVSHQ==
     dependencies:
-      "@typescript-eslint/types" "4.14.0"
-      "@typescript-eslint/visitor-keys" "4.14.0"
+      "@typescript-eslint/types" "4.14.1"
+      "@typescript-eslint/visitor-keys" "4.14.1"
       debug "^4.1.1"
       globby "^11.0.1"
       is-glob "^4.0.1"
@@ -860,12 +867,12 @@ Lockfile:
       semver "^7.3.2"
       tsutils "^3.17.1"
   
-  "@typescript-eslint/visitor-keys@4.14.0":
-    version "4.14.0"
-    resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-4.14.0.tgz#b1090d9d2955b044b2ea2904a22496849acbdf54"
-    integrity sha512-MeHHzUyRI50DuiPgV9+LxcM52FCJFYjJiWHtXlbyC27b80mfOwKeiKI+MHOTEpcpfmoPFm/vvQS88bYIx6PZTA==
+  "@typescript-eslint/visitor-keys@4.14.1":
+    version "4.14.1"
+    resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-4.14.1.tgz#e93c2ff27f47ee477a929b970ca89d60a117da91"
+    integrity sha512-TAblbDXOI7bd0C/9PE1G+AFo7R5uc+ty1ArDoxmrC1ah61Hn6shURKy7gLdRb1qKJmjHkqu5Oq+e4Kt0jwf1IA==
     dependencies:
-      "@typescript-eslint/types" "4.14.0"
+      "@typescript-eslint/types" "4.14.1"
       eslint-visitor-keys "^2.0.0"
   
   abab@^2.0.3:
@@ -2490,9 +2497,9 @@ Lockfile:
     integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
   
   get-intrinsic@^1.0.1, get-intrinsic@^1.0.2:
-    version "1.0.2"
-    resolved "https://registry.yarnpkg.com/get-intrinsic/-/get-intrinsic-1.0.2.tgz#6820da226e50b24894e08859469dc68361545d49"
-    integrity sha512-aeX0vrFm21ILl3+JpFFRNe9aUvp6VFZb2/CTbgLb8j75kOhvoNYjt9d8KA/tJG4gSo8nzEDedRl0h7vDmBYRVg==
+    version "1.1.0"
+    resolved "https://registry.yarnpkg.com/get-intrinsic/-/get-intrinsic-1.1.0.tgz#892e62931e6938c8a23ea5aaebcfb67bd97da97e"
+    integrity sha512-M11rgtQp5GZMZzDL7jLTNxbDfurpzuau5uqRWDPvlHjfvg3TdScAZo96GLvhMjImrmR8uAt0FS2RLoMrfWGKlg==
     dependencies:
       function-bind "^1.1.1"
       has "^1.0.3"
@@ -2591,6 +2598,18 @@ Lockfile:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
     integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
+  
+  handlebars@^4.7.6:
+    version "4.7.6"
+    resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.6.tgz#d4c05c1baf90e9945f77aa68a7a219aa4a7df74e"
+    integrity sha512-1f2BACcBfiwAfStCKZNrUCgqNZkGsAT7UM3kkYtXuLo0KnaVfjKOyf7PRzB6++aK9STyT1Pd2ZCPe3EGOXleXA==
+    dependencies:
+      minimist "^1.2.5"
+      neo-async "^2.6.0"
+      source-map "^0.6.1"
+      wordwrap "^1.0.0"
+    optionalDependencies:
+      uglify-js "^3.1.4"
   
   har-schema@^2.0.0:
     version "2.0.0"
@@ -4000,6 +4019,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
     integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
   
+  neo-async@^2.6.0:
+    version "2.6.2"
+    resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
+    integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+  
   nice-try@^1.0.4:
     version "1.0.5"
     resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -4026,6 +4050,11 @@ Lockfile:
       shellwords "^0.1.1"
       uuid "^8.3.0"
       which "^2.0.2"
+  
+  nodemailer@^6.4.17:
+    version "6.4.17"
+    resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.4.17.tgz#8de98618028953b80680775770f937243a7d7877"
+    integrity sha512-89ps+SBGpo0D4Bi5ZrxcrCiRFaMmkCt+gItMXQGzEtZVR3uAD3QAQIDoxTWnx3ky0Dwwy/dhFrQ+6NNGXpw/qQ==
   
   normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.5.0:
     version "2.5.0"
@@ -5575,9 +5604,9 @@ Lockfile:
     integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
   
   tsutils@^3.17.1:
-    version "3.19.1"
-    resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.19.1.tgz#d8566e0c51c82f32f9c25a4d367cd62409a547a9"
-    integrity sha512-GEdoBf5XI324lu7ycad7s6laADfnAqCw6wLGI+knxvw9vsIYBaJfYdmeCEG3FMMUiSm3OGgNb+m6utsWf5h9Vw==
+    version "3.20.0"
+    resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.20.0.tgz#ea03ea45462e146b53d70ce0893de453ff24f698"
+    integrity sha512-RYbuQuvkhuqVeXweWT3tJLKOEJ/UUw9GjNEZGWdrLLlM+611o1gwLHBpxoFJKKl25fLprp2eVthtKs5JOrNeXg==
     dependencies:
       tslib "^1.8.1"
   
@@ -5673,6 +5702,11 @@ Lockfile:
     version "4.1.3"
     resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.3.tgz#519d582bd94cba0cf8934c7d8e8467e473f53bb7"
     integrity sha512-B3ZIOf1IKeH2ixgHhj6la6xdwR9QrLC5d1VKeCSY4tvkqhF2eqd9O7txNlS0PO3GrBAFIdr3L1ndNwteUbZLYg==
+  
+  uglify-js@^3.1.4:
+    version "3.12.5"
+    resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.12.5.tgz#83241496087c640efe9dfc934832e71725aba008"
+    integrity sha512-SgpgScL4T7Hj/w/GexjnBHi3Ien9WS1Rpfg5y91WXMj9SY997ZCQU76mH4TpLwwfmMvoOU8wiaRkIf6NaH3mtg==
   
   union-value@^1.0.0:
     version "1.0.1"
@@ -5845,6 +5879,11 @@ Lockfile:
     version "1.2.3"
     resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
     integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
+  
+  wordwrap@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
+    integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
   
   wrap-ansi@^6.2.0:
     version "6.2.0"
