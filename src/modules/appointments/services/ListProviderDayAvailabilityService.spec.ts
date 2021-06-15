@@ -25,7 +25,7 @@ describe('ListProviderDayAvailabilityService', () => {
             date: new Date(2021, 1, 21, 15, 0, 0),
         });
 
-        jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+        jest.spyOn(Date, 'now').mockImplementation(() => {
             return new Date(2021, 1, 21, 11).getTime();
         });
 
