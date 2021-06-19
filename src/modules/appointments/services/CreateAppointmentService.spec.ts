@@ -1,16 +1,20 @@
 import AppError from '@shared/errors/AppError';
 
+import FakeNotificationsRepository from '@modules/notifications/infra/typeorm/repositories/NotificationsRepository';
 import CreateAppointmentService from './CreateAppointmentService';
 import FakeAppoitmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 
 let createAppointment: CreateAppointmentService;
 let fakeAppointmentsRepository: FakeAppoitmentsRepository;
+let fakeNotificationsRepository: FakeNotificationsRepository;
 
 describe('CreateAppointment', () => {
     beforeEach(() => {
         fakeAppointmentsRepository = new FakeAppoitmentsRepository();
+        fakeNotificationsRepository = new FakeNotificationsRepository();
         createAppointment = new CreateAppointmentService(
             fakeAppointmentsRepository,
+            fakeNotificationsRepository,
         );
     });
 
